@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation'
+import ForgetPasswordMessage from './forgetPassword/ForgetPasswordMessage';
 
 
 export default function AuthLayout({children}) {
@@ -29,6 +30,13 @@ export default function AuthLayout({children}) {
             />
           </Link>
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          {
+                (path === '/auth/forgetPassword/ForgetPasswordMessage') && (
+                  
+                   <ForgetPasswordMessage/>
+                )
+                
+            }
             {
                 (path === '/auth/login') && (
                   

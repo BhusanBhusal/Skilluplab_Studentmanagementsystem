@@ -2,6 +2,7 @@ import * as yup from "yup";
 
 const enrollmentvalidationSchema  = yup
 .object({
+  id:yup.number(),
   fullName: yup.string().required('Full name is required!'),
   email: yup.string().required('Email is required!').email('Not a valid email!'),
   mobile: yup.string().required('Mobile number is required!'),

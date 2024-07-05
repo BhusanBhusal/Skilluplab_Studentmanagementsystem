@@ -8,3 +8,4 @@ export const registerStudentPassword= async(data)=>{
     const resp = await updateStudentPasswordByid(data);
     return resp;
 }
+

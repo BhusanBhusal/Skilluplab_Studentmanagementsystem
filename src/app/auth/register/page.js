@@ -27,7 +27,9 @@ export default function Home() {
     await registerNewStudent(data);
     
   }
+  const StudentSubmit=async()=>{
 
+  }
   console.log(errors);
   return (
     <form className="space-y-6" onSubmit={handleSubmit(onEnrollmentSubmit)} >
@@ -207,7 +209,7 @@ export default function Home() {
       <div className="mt-6 mb-4 flex items-center justify-end gap-x-6">
         <Link href="./" className="rounded-full px-3 py-2 text-sm shadow-md font-semibold  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Cancel</Link>
         <button type="submit"
-          className="rounded-full bg-golden bg-indigo-600 px-3 py-2 text-sm shadow-md font-semibold  hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enroll</button>
+          className="rounded-full bg-golden px-3 py-2 text-sm shadow-md font-semibold   focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enroll</button>
       </div>
     </form>
       )

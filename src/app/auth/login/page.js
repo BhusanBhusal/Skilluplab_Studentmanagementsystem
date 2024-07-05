@@ -47,7 +47,7 @@ export default function Home() {
                     <span className="text-red-500">{errors.password?.message}</span>
                 </div>
                 <div className="mb-4 text-right text-blue-500 ">
-                    <Link className="" href="./forgetpassword"><u>Forgot your Password?</u></Link>
+                    <Link className="" href="./forgetPassword"><u>Forgot your Password?</u></Link>
                 </div>
                 <div className="ml-24 md:items-center">
                     <div className="md:w-2/3">

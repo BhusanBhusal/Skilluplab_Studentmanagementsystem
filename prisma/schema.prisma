@@ -25,5 +25,7 @@ model StudentEnrollment{
   sessionTime String
   fees String?
   password String?
+  resetToken String?
+  tokenExpiry DateTime?
 }
 
