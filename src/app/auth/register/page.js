@@ -207,7 +207,7 @@ export default function Home() {
 
       </div>
       <div className="mt-6 mb-4 flex items-center justify-end gap-x-6">
-        <Link href="./" className="rounded-full px-3 py-2 text-sm shadow-md font-semibold  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Cancel</Link>
+        <Link href="./login" className="rounded-full px-3 py-2 text-sm shadow-md font-semibold  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Cancel</Link>
         <button type="submit"
           className="rounded-full bg-golden px-3 py-2 text-sm shadow-md font-semibold   focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enroll</button>
       </div>

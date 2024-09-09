@@ -11,32 +11,32 @@ import { useRouter } from 'next/navigation';
 
 const createStudentPasswordSchema = yup.object(
     {
-        id:yup.number(),
+        id: yup.number(),
         password: yup.string().required("No Password Provided").min(8, 'Password should be at least 8 characters long!'),
         confirmPassword: yup.string().required("Confirm Password is required.").min(8, 'Confirm password should be at least 8 characters long!')
             .oneOf([yup.ref('password')], 'Confirm password should match with password!')
     }
 )
-export default  function  createPassword({ params }) {
+export default function createPassword({ params }) {
     const [studentData, setStudentData] = useState(null)
-    const studentId =parseInt(params.studentId);
+    const studentId = parseInt(params.studentId);
     const { push } = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(createStudentPasswordSchema)
-        
+
     });
-    useEffect( () => {
-        (async() => {
+    useEffect(() => {
+        (async () => {
             const response = await getStudentDetailsById(studentId);
             setStudentData(response)
         })();
-      },[])
-        const onPasswordSubmit = async (data) => {
-           const res= await registerStudentPassword(data);
-            if(!res.error){
-                push('/adminDashboard');
-            }
+    }, [])
+    const onPasswordSubmit = async (data) => {
+        const res = await registerStudentPassword(data);
+        if (!res.error) {
+            push('/adminDashboard');
         }
+    }
     return (
         <>
             <form className="  max-w-sm" onSubmit={handleSubmit(onPasswordSubmit)}>
@@ -44,22 +44,22 @@ export default  function  createPassword({ params }) {
                     (studentData && (<h2 className="mb-2 text-center"><b>Welcome {studentData.fullName}. You are Almost there!!</b><p>Set Your Password!!</p></h2>))
                 }
                 {studentData &&
-                <div className="mb-4 ">
-                    <label htmlFor="Email" className="block text-gray-700 text-sm font-bold mb-2" >
-                        Username:  <span className=" text-xl">{studentData.email}</span>
-                    </label>
-                   
-                </div>
+                    <div className="mb-4 ">
+                        <label htmlFor="Email" className="block text-gray-700 text-sm font-bold mb-2" >
+                            Username:  <span className=" text-xl">{studentData.email}</span>
+                        </label>
+
+                    </div>
                 }
                 <div className="">
-                {studentData && <input type="hidden" {...register('id')} value={studentData.id}/>}
+                    {studentData && <input type="hidden" {...register('id')} value={studentData.id} />}
                     <label htmlFor="Password" className="block text-gray-700 text-sm font-bold mb-2" >
                         Password <span className="text-red-500"> *</span>
                     </label>
                     <input {...register('password')} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
                     <span className="text-red-500">{errors.password?.message}</span>
                 </div>
-                
+
                 <div className="">
                     <label htmlFor="confirmPassword" className="block text-gray-700 text-sm font-bold mb-2" >
                         Confirm Password <span className="text-red-500"> *</span>
@@ -77,9 +77,9 @@ export default  function  createPassword({ params }) {
                         </Link>
                     </div>
                 </div>
-                
+
             </form>
-           
+
         </>
 
     );
